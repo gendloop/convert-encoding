@@ -18,7 +18,7 @@ on:
       path:
         description: "Path or file"
         required: true
-        default: "src\"
+        default: "src/"
 
 jobs:
   convert_encoding:

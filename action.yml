@@ -34,7 +34,8 @@ runs:
       working-directory: ${{ github.workspace }}
       run: |
         script="${{ inputs.input_coding }}_to_${{ inputs.output_coding }}.sh"
-        chmod +x ${{ github.action_path }}\scripts\$script ${{ inputs.path }}
+        action_path=$(echo ${{ github.action_path }} | sed 's/\\/\//g')
+        chmod +x ${action_path}/scripts/$script ${{ inputs.path }}
 
     - name: git-push
       uses: gendloop/git-push@v1.0.0
