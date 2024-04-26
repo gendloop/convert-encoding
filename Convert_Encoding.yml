@@ -1,9 +1,32 @@
 name: Convert_Encoding
 
-steps:
-  - name: convert-encoding
-    uses: gendloop/convert-encoding@main
-    with:
-      input_coding: 'UTF-8'
-      output_coding: 'UTF-8-BOM'
-      path: "src/"
+permissions:
+  contents: write
+  actions: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      input_coding:
+        description: 'Input encoding'
+        required: false
+        default: 'UTF-8'
+      output_coding:
+        description: 'Output encoding'
+        required: false
+        default: 'UTF-8-BOM'
+      path:
+        description: "Path or file"
+        required: true
+        default: "src/"
+
+jobs:
+  convert_encoding:
+    runs-on: ubuntu-latest
+    steps:
+      - name: convert-encoding
+        uses: gendloop/convert-encoding@main
+        with:
+          input_coding: ${{ inputs.input_coding }}
+          output_coding: ${{ inputs.output_coding }}
+          path: ${{ inputs.path }}
