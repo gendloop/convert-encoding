@@ -1,0 +1,9 @@
+name: Convert_Encoding
+
+steps:
+  - name: convert-encoding
+    uses: gendloop/convert-encoding@main
+    with:
+      input_coding: 'UTF-8'
+      output_coding: 'UTF-8-BOM'
+      path: "src/"
