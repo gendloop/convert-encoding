@@ -24,6 +24,14 @@ inputs:
 runs:
   using: 'composite'
   steps:
+    - name: check-os
+      shell: bash
+      run: |
+        if [ "${{ runner.os }}" != "Windows" ]; then
+          echo "Warning: This action is intended to run on Windows system only."
+          exit 1
+        fi
+
     - name: checkout-repo
       uses: actions/checkout@v3
       with:
