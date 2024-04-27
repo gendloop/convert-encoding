@@ -6,5 +6,8 @@ if [[ -z "$1" ]];then
     exit 1
 fi
 
-find $1 -type f -name "*" -print0 | xargs -0 -I {} sh -c 'sed -i "1 s/^/\xef\xbb\xbf&/" "{}" && echo "Converted: {}"'
+for path in "$@"; do
+    echo "Files under $path:"
+    find $path -type f -name "*" -print0 | xargs -0 -I {} sh -c 'sed -i "1 s/^/\xef\xbb\xbf&/" "{}" && echo "Converted: {}"'
+done
 echo "Finished."
