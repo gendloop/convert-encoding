@@ -2,4 +2,4 @@
 PROJECT_NAME=convert-encoding
 convert-encoding_VERSION_MAJOR=1
 convert-encoding_VERSION_MINOR=0
-convert-encoding_VERSION_PATCH=0
+convert-encoding_VERSION_PATCH=1
