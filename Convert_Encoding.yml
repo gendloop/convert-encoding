@@ -18,14 +18,14 @@ on:
       path:
         description: "Path or file"
         required: true
-        default: "src/"
+        default: "src/ include/"
 
 jobs:
   convert_encoding:
     runs-on: windows-latest
     steps:
       - name: convert-encoding
-        uses: gendloop/convert-encoding@v1.0.0
+        uses: gendloop/convert-encoding@v1.0.1
         with:
           input_coding: ${{ inputs.input_coding }}
           output_coding: ${{ inputs.output_coding }}
